@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    background-color: rgb(21, 21, 25);
+}
+
+header {
+    background-color: rgb(41, 42, 46) !important;
+    width: 100%;
+    height: 8vh;
+}
+
+#Sec-1 {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+
+#Sec-2 {
+    height: 100%;
+    width: 55%;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#Logo {
+    background-image: url(image/crakle.png);
+    width: 130px;
+    margin-left: 20px;
+    margin-right: 35px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+}
+
+nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#Sec-1>button {
+    border: 0 !important;
+    margin-left: 10px;
+}
+
+#Sec-1>button>i {
+    margin-right: 5px;
+}
+
+#Sec-1>button>strong {
+    margin: 100px !important;
+}
+
+.btn-outline-warning {
+    border-color: rgb(82, 82, 82) !important;
+    color: rgb(254, 115, 0) !important;
+    border-width: 2px;
+    padding: 5px;
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+.btn-outline-warning:hover {
+    color: rgb(82, 82, 82) !important;
+    background-color: rgb(254, 115, 0) !important;
+    ;
+}
+
+/* #Sec-2>.btn-warning {
+    background-color: rgb(254, 115, 0);
+    border-color: rgb(254, 115, 0);
+    font-weight: bold;
+} */
+
+
+
+.searchBox {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 40px;
+
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.searchBox:hover {
+    background: #2f3640;
+}
+
+.searchBox:hover>.searchInput {
+    width: 240px;
+    background: #2f3640;
+    padding: 0 6px;
+}
+
+.searchBox:hover>.searchButton {
+    background: white;
+    border-radius: 20px;
+    color: #2f3640;
+}
+
+.searchButton {
+    color: white;
+
+    padding: 10px;
+    width: auto;
+    height: 40px;
+    background: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+}
+
+
+.Section-2 {
+    width: 100%;
+    height: 92vh;
+    display: flex;
+
+}
+
+.Movies_name {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    position: relative;
+    align-items: center;
+
+}
+
+.Names_Move {
+    width: 20%;
+    height: 90%;
+    margin: 10px;
+    position: fixed;
+    left: 3%;
+    background-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden
+}
+
+.Movies {
+    width: 80%;
+    height: 100%;
+}
+
+.Movies>.Movies_Sec1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Movie_img {
+
+    width: 200px;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+#favoritIcon {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    font-size: 1.5em;
+
+}
+
+.Movie_img:hover>.Movie_Info {
+    display: flex;
+}
+
+.PageAdd {
+
+    height: 200px;
+    width: 60%;
+    height: 100px;
+    border-radius: 10px;
+    margin: 10px;
+    overflow: hidden;
+    background-color: rgb(254, 115, 0);
+}
+
+.Movie_Info {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: 100%;
+    background-color: rgba(254, 114, 0, 0.826);
+
+}
+
+.Movie_Info>.Info_Name {
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 25%;
+    word-wrap: break-word;
+    text-align: center;
+
+}
+
+.Info_Plot {
+
+    width: 100%;
+    height: 80%;
+    word-wrap: break-word;
+    text-align: center;
+    font-size: 10px;
+
+    overflow: scroll;
+    display: flex;
+    align-items: end;
+
+}
+
+.Info_Plot>p {
+    word-wrap: break-word;
+    font-style: italic;
+    width: 100%;
+}
+
+.Names_Move>.Base {
+    margin-top: 15px;
+    color: rgb(255, 238, 219);
+    font-weight: bold;
+}
+
+.Names_Move>p {
+    margin: 0;
+    color: rgb(255, 238, 219);
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all;
+    transition-duration: 2s;
+}
+
+.Names_Move>p:hover {
+    margin: 5px;
+    text-shadow: 2px 2px #eaecbe;
+    font-weight: bold;
+    transition: all;
+    transition-duration: 0.5s;
+}
+
+hr {
+    background-color: #ffffff;
+    opacity: 65%;
+    margin: 0;
+    border-radius: 20px;
+    height: 5px;
+    width: 20%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+
+
+.modal-content {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.884), rgba(0, 0, 0, 0.884), rgba(47, 18, 1, 0.874));
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    opacity: 98%;
+    box-shadow: -1px -1px 5px 1px rgb(255, 115, 0), 1px 1px 5px 1px rgb(255, 42, 0);
+    width: 80%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.modal-content>.Modal_Header {
+    width: 100%;
+    height: 8%;
+}
+
+.modal-content>.Modal_Body {
+    width: 100%;
+    height: 60%;
+    display: flex;
+}
+
+.Modal_Body>.Movie_Image {
+    margin: 8px;
+    width: 25%;
+    margin-left: 5vh;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+}
+
+.Modal_Body>.Movie_Overview {
+    margin: 8px;
+    width: 50%;
+    margin-top: 25px;
+    padding: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 90%;
+    margin-left: 20px;
+    padding-top: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: 7px solid rgba(254, 114, 0, 0.826);
+    background-color: #00000034;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+    align-items: center;
+    text-align: center;
+    transition: all;
+    transition-duration: 2s;
+}
+
+.Modal_Body>.Movie_Overview:hover {
+    box-shadow: rgba(254, 114, 0, 0.4) -5px 5px, rgba(254, 114, 0, 0.3) -10px 10px, rgba(254, 114, 0, 0.2) -15px 15px, rgba(254, 114, 0, 0.1) -20px 20px, rgba(254, 114, 0, 0.05) -25px 25px;
+    margin-left: 15vh;
+    transition: all;
+    transition-duration: 3s;
+}
+
+.modal-content>.Modal_footer {
+    width: 100%;
+    height: 35%;
+}
+
+.Modal_Header>button {
+    width: 50px;
+    height: 45px;
+    margin: 10px;
+    margin-top: 7px;
+    background-image: url(image/back.png);
+    background-size: cover;
+    border: 0;
+    background-color: transparent;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.Modal_Header>button:hover {
+    background-image: url(image/back2.png);
+    margin-top: 0;
+    transition: all;
+    transition-duration: 1s;
+}
+
+
+::-webkit-scrollbar {
+    width: 4px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: #ffffff;
+}
+
+
+
+
+.Actor {
+    width: 150px;
+    height: 94%;
+    margin: auto;
+    margin-top: 10px;
+    background-color: rgba(254, 114, 0, 0.705);
+    background-size: cover;
+    background-position: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    transition: all;
+    transition-duration: 0.5s;
+}
+
+.Actor:hover {
+    box-shadow: 1px 2px 10px 1px white;
+    transition: all;
+    transition-duration: 0.5s;
+}
+
+.imgitem {
+    width: 100%;
+    height: 80%;
+    margin: auto;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.Actor>.Actor_Name {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.Actor_Name>p {
+    width: 100%;
+    margin: auto;
+    height: auto;
+    line-height: 1;
+    font-style: italic;
+    text-align: center;
+    height: auto;
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+
+
+.Img_List {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: auto;
+    flex-basis: 500px;
+
+}
+
+.Img_List::-webkit-scrollbar-thumb {
+    background-color: rgba(254, 114, 0, 0.571);
+}
+
+/* User */
+
+.UserBox {
+    width: 250px;
+    height: 100%;
+    background-color: rgb(1, 28, 53);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.UserBox>.User {
+    background-image: url(image/login.png);
+    width: 55px;
+    background-size: cover;
+    height: 100%;
+    transition: all 2s;
+
+
+}
+
+.UserBox>.User:hover {
+    background-image: url(image/login2.png);
+    transition: all 2s;
+
+}
