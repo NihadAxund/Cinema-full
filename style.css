@@ -492,15 +492,22 @@ hr {
 .UserBox {
     width: 250px;
     height: 100%;
-    background-color: rgb(1, 28, 53);
+
     display: flex;
     align-items: center;
     justify-content: end;
+}
+.UserBox>.User_Name{
+    font-size: large;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: auto;
 }
 
 .UserBox>.User {
     background-image: url(image/login.png);
     width: 55px;
+    margin-right: 10px;
     background-size: cover;
     height: 100%;
     transition: all 2s;
