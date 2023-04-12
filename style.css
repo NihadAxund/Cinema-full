@@ -116,7 +116,6 @@ nav {
 
 .searchButton {
     color: white;
-
     padding: 10px;
     width: auto;
     height: 40px;
@@ -158,7 +157,43 @@ nav {
     justify-content: end;
     position: relative;
     align-items: center;
+}
 
+.Favorite_Movie{
+    width: 20%;
+    display: none;
+    height: 90%;
+    margin: 10px;
+    position: fixed;
+    left: 1px;
+    margin-top: 0;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.16);
+    flex-direction: column;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+.Fav_Movies{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-flow:wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(40, 40, 40);
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    
+    scroll-behavior:smooth;
+
+}
+.Fav_Movies>*{
+    margin-top: 0;
 }
 
 .Names_Move {
@@ -170,10 +205,10 @@ nav {
     background-color: rgb(40, 40, 40);
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.16);
-
+    
     flex-direction: column;
-    overflow: scroll;
-    overflow-x: hidden
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .Movies {
@@ -309,6 +344,105 @@ hr {
 }
 
 
+.Modal_Login {
+    display:none;
+    position: fixed;
+    background-image: url(image/login.gif);
+    background-size: cover;
+    opacity: 99.8%;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.Modal_Login>.Login {
+    width: 60%;
+    height: 75%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.103);
+    backdrop-filter: blur(3px);
+    border: 10px solid rgba(255, 0, 0, 0.418);
+
+}
+
+.Modal_Login>.Login>#l_txt {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.Modal_Login>.Login>.Login_page {
+    height: 90%;
+    width: 100%;
+
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+label {
+    display: flex;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    
+}
+
+.Login_page>form>input {
+
+    height: 50px;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+.Login_page>form> button {
+    margin-top: 50px;
+    width: 50%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
 
 .modal-content {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.884), rgba(0, 0, 0, 0.884), rgba(47, 18, 1, 0.874));
@@ -401,9 +535,7 @@ hr {
 
 ::-webkit-scrollbar {
     width: 4px;
-
 }
-
 ::-webkit-scrollbar-track {
 
     background: transparent;
@@ -413,9 +545,6 @@ hr {
     border-radius: 100px;
     background: #ffffff;
 }
-
-
-
 
 .Actor {
     width: 150px;
@@ -497,16 +626,17 @@ hr {
     align-items: center;
     justify-content: end;
 }
-.UserBox>.User_Name{
+
+.UserBox>.User_Name {
     font-size: large;
     color: white;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: auto;
 }
 
 .UserBox>.User {
     background-image: url(image/login.png);
-    width: 55px;
+    width: 66px;
     margin-right: 10px;
     background-size: cover;
     height: 100%;

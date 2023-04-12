@@ -2,9 +2,10 @@ var api_key = '0110ed33ece90cf6ff112ff2f4a83241';
 let pages = 1
 let section = document.querySelector(".Movies_Sec1")
 var url = `https://api.themoviedb.org/3/movie/popular?api_key=0110ed33ece90cf6ff112ff2f4a83241`;
-var contentBase = section.innerHTML;
+var contentBase = document.querySelector('.PageAdd');
 let content = "";
 let TotalPages = 1
+let Favorite_Movie_Section = document.querySelector(".Fav_Movies");
 let modal = document.querySelector('.modal')
 async function GetMovies(url) {
     if (pages > 1) {
@@ -12,6 +13,10 @@ async function GetMovies(url) {
         var response = await fetch(url);
         var jsonData = await response.json();
         var top10Movies = jsonData.results;
+        // console.log(contentBase);
+        // section.innerHTML-=contentBase;
+        section.removeChild(contentBase)
+         content = section.innerHTML;
 
     }
     else {
@@ -20,10 +25,11 @@ async function GetMovies(url) {
         var top10Movies = jsonData.results;
         TotalPages = jsonData.total_pages;
     }
+    //content=section.innerHTML;
     top10Movies.forEach(element => {
 
         content += `<div class="Movie_img" style="background-image:url(https://image.tmdb.org/t/p/w500/${element.poster_path});">
-        <i id='favoritIcon' class="fa-sharp fa-solid fa-crown fa-fade" onclick="IsFavorite(event)"></i>
+        <i id='favoritIcon' class="fa-sharp fa-solid fa-crown fa-fade" onclick="IsFavorite(event)" ></i>
         <div class="Movie_Info" id = ${element.id} onclick="Movie_Click(id)">
         <p class="Info_Name">${element.original_title}</p>
         <div class="Info_Plot">
@@ -37,13 +43,12 @@ async function GetMovies(url) {
         <p style="color: azure; margin: 0;">PAGE ${pages}</p>
         <hr>
         </div>`
-    section.innerHTML = content + contentBase;
-    //alert(content)
+    section.innerHTML = content;
+    section.appendChild(contentBase)
+    console.log(contentBase);
 }
 
 GetMovies(url)
-//alert(section.innerHTML)
-
 async function GetMoviesNameList() {
     let names = document.querySelector('.Names_Move')
     let Contet = names.innerHTML;
@@ -137,11 +142,12 @@ async function ActorInfo(id) {
         });
 }
 
-function Movie_About(id) {
+async function Movie_About(id) {
     let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`
     let value = document.querySelector('.Movie_Image')
+    value.style.backgroundImage=''
     let value2 = document.querySelector(".Movie_Overview")
-    fetch(url)
+    await fetch(url)
         .then(response => response.json())
         .then(data => {
             value.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${data.poster_path})`
@@ -151,14 +157,9 @@ function Movie_About(id) {
 }
 
 function Movie_Click(event) {
-
     Movie_About(event)
     ActorInfo(event)
     modal.style.display = "flex"
-
-
-
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,10 +168,10 @@ var sectionB = document.querySelector(".Img_List")
 
 
 function AddImgItem() {
-    var isDragging = false;
-    var isokay = false
-    var IsOk = true;
     var sectionA = document.querySelectorAll(".Actor");
+    var isDragging = false;
+    // var isokay = false
+    // var IsOk = true;
     sectionB.addEventListener('mouseleave', (event) => {
         const newPosition = {
             x: event.clientX,
@@ -217,19 +218,107 @@ function AddImgItem() {
 }
 
 ////////////////////////////////////
-function IsFavorite(event){
+function IsFavorite(event) {
     const value = event.target
     if (value.style.color == 'gold') {
         value.style.color = '';
         value.classList.toggle('fa-beat');
         value.classList.toggle('fa-fade');
     }
-    else{
+    else {
         value.classList.toggle('fa-beat');
         value.classList.toggle('fa-fade');
         value.style.color = 'gold';
+        AddWatch_List(value)
     }
 }
+
+async function AddWatch_List(data) {
+    let vle = data.parentElement;
+    // alert(Favorite_Movie_Section.innerHTML)
+    Favorite_Movie_Section.appendChild(vle.cloneNode(true))
+    Favorite_Movie_Section.scrollTo(100, Favorite_Movie_Section.scrollHeight);
+}
+
+async function Login_btn_Click() {
+    let form = document.querySelector('form');
+    let username = document.getElementById("username");
+    // let password = document.getElementById("Password")
+    let Email = username.value;
+    if (form.checkValidity()) {
+        let boolen = await ApiCheck(Email)
+        if (boolen) {
+            Close_Login()
+        }
+        else {
+            alert("Not User")
+            form.requestSubmit();
+        }
+    }
+    else {
+        form.requestSubmit();
+    }
+}
+var User;
+async function ApiCheck(searchQuery) {
+
+    let response = await fetch(`https://reqres.in/api/users?email=${searchQuery}`);
+    let data2 = await response.json();
+    const data = data2.data
+    let isok = false;
+    console.log(data);
+    if (data.total === 0) {
+        alert("Not user")
+        isok = false;
+        return false;
+    }
+    else {
+        data.forEach(element => {
+            if (element.email == searchQuery) {
+                //alert(element.email)
+                User = element;
+                isok = true;
+                return isok;
+            }
+        });
+        return isok
+    }
+}
+
+async function Close_Login() {
+    let i = document.querySelector(".Modal_Login")
+    i.style.display = 'none'
+    let us = document.querySelector('.User_Name')
+    us.innerHTML = User.first_name;
+}
+
+
+$.fn.TrueFalse = function () {
+    if ($(this).is(":visible")) {
+        $(this).removeClass('animate__rollIn')
+        $(this).addClass("animate__fadeOutTopLeft")
+        setTimeout(() => {
+            $(this).hide()
+            $(this).removeClass('animate__fadeOutTopLeft')
+        }, 300);
+    }
+    else {
+        $(this).addClass("animate__rollIn")
+        $(this).show();
+    }
+};
+$(document).ready(function () {
+
+
+    $(".btn-outline-light").click(function () {
+        //$(".Favorite_Movie").toggle();
+        $(".Favorite_Movie").TrueFalse();
+        setTimeout(() => {
+            $(".Names_Move").TrueFalse();
+        }, 200);
+    });
+});
+
 
 
 

@@ -29,8 +29,6 @@
             </section>
 
             <section id="Sec-2">
-
-
                 <div class="searchBox">
 
                     <input class="searchInput" type="text" placeholder="Search">
@@ -43,12 +41,31 @@
                     <p class="User_Name">Nihad</p>
                     <section class="User"></section>
                 </div>
-
-
                 <button type="button" class="btn btn-outline-warning">SIGN IN</button>
             </section>
         </nav>
     </header>
+
+    <section class="Modal_Login">
+        <section class="Login">
+            <section id="l_txt">
+                <p style="color: brown; font-size: 3em; font-family:Georgia, 'Times New Roman', Times, serif;">LOGIN</p>
+            </section>
+            <section class="Login_page">
+                <form>
+                    <label for="username">Email</label>
+                    <input required type="email" placeholder="janet.weaver@reqres.in" id="username">
+                    <label for="password">Random password</label>
+                    <input required minlength="6" type="password" placeholder="Password" id="password">
+                    <button onclick="Login_btn_Click()" type="button">Log In</button>
+                </form>
+            </section>
+        </section>
+    </section>
+
+
+
+
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -59,65 +76,11 @@
             <div class="Modal_Body">
                 <div class="Movie_Image animate__animated animate__slideInDown"></div>
                 <div class="Movie_Overview animate__animated animate__zoomInRight">
- 
+
                 </div>
             </div>
             <div class="Modal_footer">
                 <section Tag="a" id="Nihad" class="Img_List">
-                    <!-- <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div>
-                    <div class="Actor">
-                        <div class="imgitem" style="background-image:url(image/crakle.png) ;"></div>
-                        <div class="Actor_Name">
-                            <p style="color: aliceblue;">Nihad</p>
-                        </div>
-                    </div> -->
                 </section>
             </div>
         </div>
@@ -125,25 +88,21 @@
     </div>
     <section class="Section-2">
         <section class="Movies_name">
-            <section class="Names_Move">
+            <section class="Names_Move animate__animated animate__rollIn">
                 <p class="Base" onclick="Click(event)">ALL MOVIES</p>
             </section>
+            <section class="Favorite_Movie animate__animated animate__rollIn">
+                <section class="Fav_Movies">
+                    
+                </section>
+            </section>
         </section>
+
         <section class="Movies">
             <section class="Movies_Sec1">
                 <div class="PageAdd d-flex justify-content-center align-items-center" onclick="Add_Page(event)">
                     <i class="fa-solid fa-plus fa-beat-fade" style="font-size: 80px;"></i>
                 </div>
-                <!-- <div class="Movie_img"
-                style="background-image:url(https://qph.cf2.quoracdn.net/main-qimg-2bd839b550855a1077ad489faa261de3-lq);">
-                <div class="Movie_Info">
-                    <p class="Info_Name">Mervel</p>
-                    <div class="Info_Plot">
-                        <p>AAAAAAAAAAAAAAAAAAAAAAA</p>
-                    </div>
-                </div> -->
-                </div>
-
 
             </section>
         </section>
@@ -154,6 +113,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="index.js"></script>
 </body>
 
