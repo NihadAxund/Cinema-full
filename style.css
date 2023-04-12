@@ -345,7 +345,7 @@ hr {
 
 
 .Modal_Login {
-    display:none;
+    display:flex;
     position: fixed;
     background-image: url(image/login.gif);
     background-size: cover;
