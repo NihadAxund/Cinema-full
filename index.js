@@ -13,10 +13,8 @@ async function GetMovies(url) {
         var response = await fetch(url);
         var jsonData = await response.json();
         var top10Movies = jsonData.results;
-        // console.log(contentBase);
-        // section.innerHTML-=contentBase;
         section.removeChild(contentBase)
-         content = section.innerHTML;
+        content = section.innerHTML;
 
     }
     else {
@@ -28,7 +26,7 @@ async function GetMovies(url) {
     //content=section.innerHTML;
     top10Movies.forEach(element => {
 
-        content += `<div class="Movie_img" style="background-image:url(https://image.tmdb.org/t/p/w500/${element.poster_path});">
+        content += `<div id = "${element.id}|"; class="Movie_img" style="background-image:url(https://image.tmdb.org/t/p/w500/${element.poster_path});">
         <i id='favoritIcon' class="fa-sharp fa-solid fa-crown fa-fade" onclick="IsFavorite(event)" ></i>
         <div class="Movie_Info" id = ${element.id} onclick="Movie_Click(id)">
         <p class="Info_Name">${element.original_title}</p>
@@ -45,7 +43,6 @@ async function GetMovies(url) {
         </div>`
     section.innerHTML = content;
     section.appendChild(contentBase)
-    console.log(contentBase);
 }
 
 GetMovies(url)
@@ -93,7 +90,7 @@ function Search() {
     let item = document.querySelector('.searchInput')
     let query = item.value;
     if (query.length > 2) {
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}&page=${pages}`
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}&page=${pages}`;
         GetMovies(url);
     }
 }
@@ -145,7 +142,7 @@ async function ActorInfo(id) {
 async function Movie_About(id) {
     let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`
     let value = document.querySelector('.Movie_Image')
-    value.style.backgroundImage=''
+    value.style.backgroundImage = ''
     let value2 = document.querySelector(".Movie_Overview")
     await fetch(url)
         .then(response => response.json())
@@ -224,20 +221,27 @@ function IsFavorite(event) {
         value.style.color = '';
         value.classList.toggle('fa-beat');
         value.classList.toggle('fa-fade');
+        DeleteWatch_List(value);
     }
     else {
         value.classList.toggle('fa-beat');
         value.classList.toggle('fa-fade');
         value.style.color = 'gold';
-        AddWatch_List(value)
+        AddWatch_List(value);
+
     }
 }
 
 async function AddWatch_List(data) {
     let vle = data.parentElement;
-    // alert(Favorite_Movie_Section.innerHTML)
     Favorite_Movie_Section.appendChild(vle.cloneNode(true))
     Favorite_Movie_Section.scrollTo(100, Favorite_Movie_Section.scrollHeight);
+}
+
+async function DeleteWatch_List(data) {
+    let vle = data.parentElement;
+    let v = document.getElementById(vle.id);
+    Favorite_Movie_Section.removeChild(v);
 }
 
 async function Login_btn_Click() {

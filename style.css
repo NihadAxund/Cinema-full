@@ -286,7 +286,6 @@ nav {
     word-wrap: break-word;
     text-align: center;
     font-size: 10px;
-
     overflow: scroll;
     display: flex;
     align-items: end;
@@ -334,7 +333,6 @@ hr {
 .modal {
     display: none;
     position: fixed;
-
     z-index: 1;
     left: 0;
     top: 0;
